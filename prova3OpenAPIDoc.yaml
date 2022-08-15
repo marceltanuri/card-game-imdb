@@ -1,626 +1,603 @@
 openapi: 3.0.0
-info:
-  title: AdaProva3
-  contact: {}
-  version: '1.0'
 servers:
-  - url: https://localhost:8080
-    variables: {}
+  - url: localhost:8080
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+security:
+  - basicAuth: []
 paths:
   /iniciar:
     post:
-      tags:
-        - Misc
-      summary: Iniciar Partida
-      operationId: IniciarPartida
-      parameters:
-        - name: Accept
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-            example: application/json
+      summary: Iniciar
+      requestBody:
+        content: {}
+      security:
+        - basicAuth: []
       responses:
         '200':
           description: OK
           headers:
             X-Content-Type-Options:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: nosniff
+              schema:
+                type: string
+                example: nosniff
             X-XSS-Protection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1; mode=block
+              schema:
+                type: string
+                example: 1; mode=block
             Cache-Control:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: no-cache, no-store, max-age=0, must-revalidate
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
             Pragma:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: no-cache
+              schema:
+                type: string
+                example: no-cache
             Expires:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: '0'
+              schema:
+                type: integer
+                example: '0'
             X-Frame-Options:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: DENY
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
             Transfer-Encoding:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: chunked
+              schema:
+                type: string
+                example: chunked
             Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: Mon, 15 Aug 2022 13:30:19 GMT
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:39:42 GMT
             Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: timeout=60
+              schema:
+                type: string
+                example: timeout=60
             Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: keep-alive
+              schema:
+                type: string
+                example: keep-alive
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IniciarPartida'
+                type: object
               example:
                 numeroDaRodada: 1
                 cartas:
-                  - imdbId: tt5690360
-                    titulo: Slender Man
+                  - imdbId: tt0110857
+                    titulo: 'Academia de Polícia VII: Missão em Moscovo'
                     ano: 0
-                    imagem: https://m.media-amazon.com/images/M/MV5BMjE0MzcwMDAyNl5BMl5BanBnXkFtZTgwMzc4ODg0NDM@._V1_UY67_CR0,0,45,67_AL_.jpg
-                    hashImdbId: 5690360
-                  - imdbId: tt9731386
-                    titulo: Rogue Agent
+                    imagem: >-
+                      https://m.media-amazon.com/images/M/MV5BNmM5MzA3YTMtZDZkNy00YzNlLWFkZTUtZDJhYTNkMzk1ODNlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY67_CR0,0,45,67_AL_.jpg
+                    hashImdbId: 110857
+                  - imdbId: tt1832382
+                    titulo: Uma Separação
                     ano: 0
-                    imagem: https://m.media-amazon.com/images/M/MV5BYjdkZjE4MzUtMzBhYy00ZGIwLWFmYmYtNzI4NzY1ZjRlYzUzXkEyXkFqcGdeQXVyMTE1MzI2NzIz._V1_UY67_CR0,0,45,67_AL_.jpg
-                    hashImdbId: 9731386
+                    imagem: >-
+                      https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg
+                    hashImdbId: 1832382
                 imdbEscolhido: null
-      deprecated: false
-  /status:
-    get:
+  /proxima/tt10886166:
+    post:
       tags:
-        - Misc
-      summary: Status da partida
-      operationId: Statusdapartida
-      parameters:
-        - name: Accept
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-            example: application/json
+        - default
+      summary: Próxima rodada
+      requestBody:
+        content: {}
+      security:
+        - basicAuth: []
       responses:
         '200':
           description: OK
           headers:
             X-Content-Type-Options:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: nosniff
+              schema:
+                type: string
+                example: nosniff
             X-XSS-Protection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1; mode=block
+              schema:
+                type: string
+                example: 1; mode=block
             Cache-Control:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: no-cache, no-store, max-age=0, must-revalidate
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
             Pragma:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: no-cache
+              schema:
+                type: string
+                example: no-cache
             Expires:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: '0'
+              schema:
+                type: integer
+                example: '0'
             X-Frame-Options:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: DENY
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
             Transfer-Encoding:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: chunked
+              schema:
+                type: string
+                example: chunked
             Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: Mon, 15 Aug 2022 13:38:37 GMT
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:39:58 GMT
             Keep-Alive:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: timeout=60
+              schema:
+                type: string
+                example: timeout=60
             Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: keep-alive
+              schema:
+                type: string
+                example: keep-alive
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Statusdapartida'
+                type: object
               example:
-                id: 8
-                dataInicio: '2022-08-15T14:37:30.089922'
+                numeroDaRodada: 2
+                cartas:
+                  - imdbId: tt1464335
+                    titulo: Uncharted
+                    ano: 0
+                    imagem: >-
+                      https://m.media-amazon.com/images/M/MV5BMWEwNjhkYzYtNjgzYy00YTY2LThjYWYtYzViMGJkZTI4Y2MyXkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_UY67_CR0,0,45,67_AL_.jpg
+                    hashImdbId: 1464335
+                  - imdbId: tt1291584
+                    titulo: Warrior - Combate Entre Irmãos
+                    ano: 0
+                    imagem: >-
+                      https://m.media-amazon.com/images/M/MV5BMTk4ODk5MTMyNV5BMl5BanBnXkFtZTcwMDMyNTg0Ng@@._V1_UX45_CR0,0,45,67_AL_.jpg
+                    hashImdbId: 1291584
+                imdbEscolhido: null
+        '400':
+          description: Bad Request
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: text/plain;charset=UTF-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '34'
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:40:11 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: O ImdbId informado não é válido
+  /status:
+    get:
+      tags:
+        - default
+      summary: Status
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:38:08 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 2
+                dataInicio: '2022-08-15T18:35:55.020767'
                 jogador:
-                  nome: user1
-                  ultimoAcesso: '2022-08-15T14:38:09.308499'
-                  pontuacaoRecord: 0
-                erros: 0
+                  nome: user
+                  ultimoAcesso: '2022-08-15T18:35:54.985208'
+                  pontuacaoRecord: null
+                erros: 1
                 emAndamento: true
                 rodadaAtual:
                   numeroDaRodada: 2
                   cartas:
-                    - imdbId: tt0046912
-                      titulo: Chamada para a Morte
+                    - imdbId: tt9419884
+                      titulo: Doutor Estranho no Multiverso da Loucura
                       ano: 0
-                      imagem: https://m.media-amazon.com/images/M/MV5BOWIwODIxYWItZDI4MS00YzhhLWE3MmYtMzlhZDIwOTMzZmE5L2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg
-                      hashImdbId: 46912
-                    - imdbId: tt0032553
-                      titulo: O Grande Ditador
+                      imagem: >-
+                        https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_UY67_CR0,0,45,67_AL_.jpg
+                      hashImdbId: 9419884
+                    - imdbId: tt0266697
+                      titulo: Kill Bill - A Vingança (vol. 1)
                       ano: 0
-                      imagem: https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
-                      hashImdbId: 32553
+                      imagem: >-
+                        https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg
+                      hashImdbId: 266697
                   imdbEscolhido: null
                 motivoTerminoDaPartida: null
                 rodadas:
                   - numeroDaRodada: 1
                     cartas:
-                      - imdbId: tt0032138
-                        titulo: O Feiticeiro de Oz
+                      - imdbId: tt0117951
+                        titulo: Trainspotting
                         ano: 0
-                        imagem: https://m.media-amazon.com/images/M/MV5BNjUyMTc4MDExMV5BMl5BanBnXkFtZTgwNDg0NDIwMjE@._V1_UX45_CR0,0,45,67_AL_.jpg
-                        hashImdbId: 32138
-                      - imdbId: tt0308208
-                        titulo: Balística
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BMzA5Zjc3ZTMtMmU5YS00YTMwLWI4MWUtYTU0YTVmNjVmODZhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
+                        hashImdbId: 117951
+                      - imdbId: tt10886166
+                        titulo: 365 Dias
                         ano: 0
-                        imagem: https://m.media-amazon.com/images/M/MV5BMTkwMDk0OTcyMF5BMl5BanBnXkFtZTYwNzcxMDg5._V1_UY67_CR0,0,45,67_AL_.jpg
-                        hashImdbId: 308208
-                    imdbEscolhido: tt0032138
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BMDdhYzNkOWQtYWNlNi00NDdjLWJlZDMtMjJjZDYyNjAxM2U1XkEyXkFqcGdeQXVyMTQyMTMwOTk0._V1_UY67_CR2,0,45,67_AL_.jpg
+                        hashImdbId: 10886166
+                    imdbEscolhido: tt10886166
                   - numeroDaRodada: 2
                     cartas:
-                      - imdbId: tt0046912
-                        titulo: Chamada para a Morte
+                      - imdbId: tt9419884
+                        titulo: Doutor Estranho no Multiverso da Loucura
                         ano: 0
-                        imagem: https://m.media-amazon.com/images/M/MV5BOWIwODIxYWItZDI4MS00YzhhLWE3MmYtMzlhZDIwOTMzZmE5L2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg
-                        hashImdbId: 46912
-                      - imdbId: tt0032553
-                        titulo: O Grande Ditador
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_UY67_CR0,0,45,67_AL_.jpg
+                        hashImdbId: 9419884
+                      - imdbId: tt0266697
+                        titulo: Kill Bill - A Vingança (vol. 1)
                         ano: 0
-                        imagem: https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
-                        hashImdbId: 32553
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg
+                        hashImdbId: 266697
                     imdbEscolhido: null
-                score: 1
-      deprecated: false
-components:
-  schemas:
-    IniciarPartida:
-      title: IniciarPartida
-      required:
-        - numeroDaRodada
-        - cartas
-        - imdbEscolhido
-      type: object
-      properties:
-        numeroDaRodada:
-          type: integer
-          format: int32
-        cartas:
-          type: array
-          items:
-            $ref: '#/components/schemas/Carta'
-          description: ''
-        imdbEscolhido:
-          type: string
-          nullable: true
-      example:
-        numeroDaRodada: 1
-        cartas:
-          - imdbId: tt5690360
-            titulo: Slender Man
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BMjE0MzcwMDAyNl5BMl5BanBnXkFtZTgwMzc4ODg0NDM@._V1_UY67_CR0,0,45,67_AL_.jpg
-            hashImdbId: 5690360
-          - imdbId: tt9731386
-            titulo: Rogue Agent
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BYjdkZjE4MzUtMzBhYy00ZGIwLWFmYmYtNzI4NzY1ZjRlYzUzXkEyXkFqcGdeQXVyMTE1MzI2NzIz._V1_UY67_CR0,0,45,67_AL_.jpg
-            hashImdbId: 9731386
-        imdbEscolhido: null
-    Carta:
-      title: Carta
-      required:
-        - imdbId
-        - titulo
-        - ano
-        - imagem
-        - hashImdbId
-      type: object
-      properties:
-        imdbId:
-          type: string
-        titulo:
-          type: string
-        ano:
-          type: integer
-          format: int32
-        imagem:
-          type: string
-        hashImdbId:
-          type: integer
-          format: int32
-      example:
-        imdbId: tt5690360
-        titulo: Slender Man
-        ano: 0
-        imagem: https://m.media-amazon.com/images/M/MV5BMjE0MzcwMDAyNl5BMl5BanBnXkFtZTgwMzc4ODg0NDM@._V1_UY67_CR0,0,45,67_AL_.jpg
-        hashImdbId: 5690360
-    Desistir:
-      title: Desistir
-      required:
-        - id
-        - dataInicio
-        - jogador
-        - erros
-        - emAndamento
-        - rodadaAtual
-        - motivoTerminoDaPartida
-        - rodadas
-        - score
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        dataInicio:
-          type: string
-        jogador:
-          $ref: '#/components/schemas/Jogador'
-        erros:
-          type: integer
-          format: int32
-        emAndamento:
-          type: boolean
-        rodadaAtual:
-          $ref: '#/components/schemas/RodadaAtual'
-        motivoTerminoDaPartida:
-          type: string
-        rodadas:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rodada'
-          description: ''
-        score:
-          type: integer
-          format: int32
-      example:
-        id: 6
-        dataInicio: '2022-08-15T14:36:43.093359'
-        jogador:
-          nome: user1
-          ultimoAcesso: '2022-08-15T14:36:43.092361'
-          pontuacaoRecord: 0
-        erros: 0
-        emAndamento: false
-        rodadaAtual:
-          numeroDaRodada: 1
-          cartas:
-            - imdbId: tt0107290
-              titulo: Parque Jurássico
-              ano: 0
-              imagem: https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_UX45_CR0,0,45,67_AL_.jpg
-              hashImdbId: 107290
-            - imdbId: tt0089280
-              titulo: Os Hobgoblins
-              ano: 0
-              imagem: https://m.media-amazon.com/images/M/MV5BMTYzNDYxMTY3N15BMl5BanBnXkFtZTgwNjAxMzkwMzE@._V1_UX45_CR0,0,45,67_AL_.jpg
-              hashImdbId: 89280
-          imdbEscolhido: null
-        motivoTerminoDaPartida: Desistiu
-        rodadas:
-          - numeroDaRodada: 1
-            cartas:
-              - imdbId: tt0107290
-                titulo: Parque Jurássico
-                ano: 0
-                imagem: https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_UX45_CR0,0,45,67_AL_.jpg
-                hashImdbId: 107290
-              - imdbId: tt0089280
-                titulo: Os Hobgoblins
-                ano: 0
-                imagem: https://m.media-amazon.com/images/M/MV5BMTYzNDYxMTY3N15BMl5BanBnXkFtZTgwNjAxMzkwMzE@._V1_UX45_CR0,0,45,67_AL_.jpg
-                hashImdbId: 89280
-            imdbEscolhido: null
-        score: 0
-    Jogador:
-      title: Jogador
-      required:
-        - nome
-        - ultimoAcesso
-        - pontuacaoRecord
-      type: object
-      properties:
-        nome:
-          type: string
-        ultimoAcesso:
-          type: string
-        pontuacaoRecord:
-          type: integer
-          format: int32
-      example:
-        nome: user1
-        ultimoAcesso: '2022-08-15T14:36:43.092361'
-        pontuacaoRecord: 0
-    RodadaAtual:
-      title: RodadaAtual
-      required:
-        - numeroDaRodada
-        - cartas
-        - imdbEscolhido
-      type: object
-      properties:
-        numeroDaRodada:
-          type: integer
-          format: int32
-        cartas:
-          type: array
-          items:
-            $ref: '#/components/schemas/Carta'
-          description: ''
-        imdbEscolhido:
-          type: string
-          nullable: true
-      example:
-        numeroDaRodada: 1
-        cartas:
-          - imdbId: tt0107290
-            titulo: Parque Jurássico
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_UX45_CR0,0,45,67_AL_.jpg
-            hashImdbId: 107290
-          - imdbId: tt0089280
-            titulo: Os Hobgoblins
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BMTYzNDYxMTY3N15BMl5BanBnXkFtZTgwNjAxMzkwMzE@._V1_UX45_CR0,0,45,67_AL_.jpg
-            hashImdbId: 89280
-        imdbEscolhido: null
-    Rodada:
-      title: Rodada
-      required:
-        - numeroDaRodada
-        - cartas
-        - imdbEscolhido
-      type: object
-      properties:
-        numeroDaRodada:
-          type: integer
-          format: int32
-        cartas:
-          type: array
-          items:
-            $ref: '#/components/schemas/Carta'
-          description: ''
-        imdbEscolhido:
-          type: string
-          nullable: true
-      example:
-        numeroDaRodada: 1
-        cartas:
-          - imdbId: tt0107290
-            titulo: Parque Jurássico
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_UX45_CR0,0,45,67_AL_.jpg
-            hashImdbId: 107290
-          - imdbId: tt0089280
-            titulo: Os Hobgoblins
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BMTYzNDYxMTY3N15BMl5BanBnXkFtZTgwNjAxMzkwMzE@._V1_UX45_CR0,0,45,67_AL_.jpg
-            hashImdbId: 89280
-        imdbEscolhido: null
-    Prximarodada:
-      title: Prximarodada
-      required:
-        - numeroDaRodada
-        - cartas
-        - imdbEscolhido
-      type: object
-      properties:
-        numeroDaRodada:
-          type: integer
-          format: int32
-        cartas:
-          type: array
-          items:
-            $ref: '#/components/schemas/Carta'
-          description: ''
-        imdbEscolhido:
-          type: string
-          nullable: true
-      example:
-        numeroDaRodada: 2
-        cartas:
-          - imdbId: tt0032553
-            titulo: O Grande Ditador
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
-            hashImdbId: 32553
-          - imdbId: tt0046912
-            titulo: Chamada para a Morte
-            ano: 0
-            imagem: https://m.media-amazon.com/images/M/MV5BOWIwODIxYWItZDI4MS00YzhhLWE3MmYtMzlhZDIwOTMzZmE5L2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg
-            hashImdbId: 46912
-        imdbEscolhido: null
-    Statusdapartida:
-      title: Statusdapartida
-      required:
-        - id
-        - dataInicio
-        - jogador
-        - erros
-        - emAndamento
-        - rodadaAtual
-        - motivoTerminoDaPartida
-        - rodadas
-        - score
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        dataInicio:
-          type: string
-        jogador:
-          $ref: '#/components/schemas/Jogador'
-        erros:
-          type: integer
-          format: int32
-        emAndamento:
-          type: boolean
-        rodadaAtual:
-          $ref: '#/components/schemas/RodadaAtual'
-        motivoTerminoDaPartida:
-          type: string
-          nullable: true
-        rodadas:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rodada'
-          description: ''
-        score:
-          type: integer
-          format: int32
-      example:
-        id: 8
-        dataInicio: '2022-08-15T14:37:30.089922'
-        jogador:
-          nome: user1
-          ultimoAcesso: '2022-08-15T14:38:09.308499'
-          pontuacaoRecord: 0
-        erros: 0
-        emAndamento: true
-        rodadaAtual:
-          numeroDaRodada: 2
-          cartas:
-            - imdbId: tt0046912
-              titulo: Chamada para a Morte
-              ano: 0
-              imagem: https://m.media-amazon.com/images/M/MV5BOWIwODIxYWItZDI4MS00YzhhLWE3MmYtMzlhZDIwOTMzZmE5L2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg
-              hashImdbId: 46912
-            - imdbId: tt0032553
-              titulo: O Grande Ditador
-              ano: 0
-              imagem: https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
-              hashImdbId: 32553
-          imdbEscolhido: null
-        motivoTerminoDaPartida: null
-        rodadas:
-          - numeroDaRodada: 1
-            cartas:
-              - imdbId: tt0032138
-                titulo: O Feiticeiro de Oz
-                ano: 0
-                imagem: https://m.media-amazon.com/images/M/MV5BNjUyMTc4MDExMV5BMl5BanBnXkFtZTgwNDg0NDIwMjE@._V1_UX45_CR0,0,45,67_AL_.jpg
-                hashImdbId: 32138
-              - imdbId: tt0308208
-                titulo: Balística
-                ano: 0
-                imagem: https://m.media-amazon.com/images/M/MV5BMTkwMDk0OTcyMF5BMl5BanBnXkFtZTYwNzcxMDg5._V1_UY67_CR0,0,45,67_AL_.jpg
-                hashImdbId: 308208
-            imdbEscolhido: tt0032138
-          - numeroDaRodada: 2
-            cartas:
-              - imdbId: tt0046912
-                titulo: Chamada para a Morte
-                ano: 0
-                imagem: https://m.media-amazon.com/images/M/MV5BOWIwODIxYWItZDI4MS00YzhhLWE3MmYtMzlhZDIwOTMzZmE5L2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg
-                hashImdbId: 46912
-              - imdbId: tt0032553
-                titulo: O Grande Ditador
-                ano: 0
-                imagem: https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
-                hashImdbId: 32553
-            imdbEscolhido: null
-        score: 1
-    Top10jogadore:
-      title: Top10jogadore
-      required:
-        - nome
-        - ultimoAcesso
-        - pontuacaoRecord
-      type: object
-      properties:
-        nome:
-          type: string
-        ultimoAcesso:
-          type: string
-          nullable: true
-        pontuacaoRecord:
-          oneOf:
-            - type: integer
-              format: int32
-              nullable: true
-            - type: string
-              nullable: true
-            - nullable: true
-      example:
-        nome: user1
-        ultimoAcesso: '2022-08-15T14:38:09.308499'
-        pontuacaoRecord: 0
-  securitySchemes:
-    basic:
-      type: http
-      scheme: basic
-security:
-  - basic: []
-tags:
-  - name: Misc
-    description: ''
+                score: 0
+  /desistir:
+    post:
+      tags:
+        - default
+      summary: Desistir
+      requestBody:
+        content: {}
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:38:41 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 2
+                dataInicio: '2022-08-15T18:35:55.020767'
+                jogador:
+                  nome: user
+                  ultimoAcesso: '2022-08-15T18:35:54.985208'
+                  pontuacaoRecord: 0
+                erros: 1
+                emAndamento: false
+                rodadaAtual:
+                  numeroDaRodada: 2
+                  cartas:
+                    - imdbId: tt9419884
+                      titulo: Doutor Estranho no Multiverso da Loucura
+                      ano: 0
+                      imagem: >-
+                        https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_UY67_CR0,0,45,67_AL_.jpg
+                      hashImdbId: 9419884
+                    - imdbId: tt0266697
+                      titulo: Kill Bill - A Vingança (vol. 1)
+                      ano: 0
+                      imagem: >-
+                        https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg
+                      hashImdbId: 266697
+                  imdbEscolhido: null
+                motivoTerminoDaPartida: Desistiu
+                rodadas:
+                  - numeroDaRodada: 1
+                    cartas:
+                      - imdbId: tt0117951
+                        titulo: Trainspotting
+                        ano: 0
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BMzA5Zjc3ZTMtMmU5YS00YTMwLWI4MWUtYTU0YTVmNjVmODZhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UY67_CR0,0,45,67_AL_.jpg
+                        hashImdbId: 117951
+                      - imdbId: tt10886166
+                        titulo: 365 Dias
+                        ano: 0
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BMDdhYzNkOWQtYWNlNi00NDdjLWJlZDMtMjJjZDYyNjAxM2U1XkEyXkFqcGdeQXVyMTQyMTMwOTk0._V1_UY67_CR2,0,45,67_AL_.jpg
+                        hashImdbId: 10886166
+                    imdbEscolhido: tt10886166
+                  - numeroDaRodada: 2
+                    cartas:
+                      - imdbId: tt9419884
+                        titulo: Doutor Estranho no Multiverso da Loucura
+                        ano: 0
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_UY67_CR0,0,45,67_AL_.jpg
+                        hashImdbId: 9419884
+                      - imdbId: tt0266697
+                        titulo: Kill Bill - A Vingança (vol. 1)
+                        ano: 0
+                        imagem: >-
+                          https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg
+                        hashImdbId: 266697
+                    imdbEscolhido: null
+                score: 0
+  /top10:
+    get:
+      tags:
+        - default
+      summary: Top10
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:40:37 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - nome: user
+                  ultimoAcesso: '2022-08-15T18:39:42.480232'
+                  pontuacaoRecord: 0
+                - nome: user1
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user2
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user3
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user4
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user5
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user6
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user7
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user8
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+                - nome: user9
+                  ultimoAcesso: null
+                  pontuacaoRecord: null
+  /meuRanking:
+    get:
+      tags:
+        - default
+      summary: MeuRanking
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-XSS-Protection:
+              schema:
+                type: string
+                example: 1; mode=block
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              schema:
+                type: string
+                example: no-cache
+            Expires:
+              schema:
+                type: integer
+                example: '0'
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Aug 2022 17:40:41 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example: 6
+info:
+  contact:
+    email: marcel.tanuri@gmail.com
+    url: https://github.com/marceltanuri/card-game-imdb
+  version: 1.0.0
+  title: card-game-imdb
